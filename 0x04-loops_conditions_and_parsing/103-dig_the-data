@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+log_file="/home/truthserum/Alx/alx-system_engineering-devops/0x04-loops_conditions_and_parsing/apache-access.log"
+
+# Use awk to group visitors by IP and HTTP status code, count occurrences, and format the output
+awk '{ count[$1" "$9]++ } END { for (entry in count) print count[entry], entry }' "${log_file}" | sort -nr || true
